@@ -2,7 +2,7 @@ from collections import OrderedDict
 
 import pickle
 
-from requests import request
+#from requests import request
 
 """
 function caseSensitiveMatching(query, caseSensitive){

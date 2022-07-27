@@ -7,6 +7,7 @@ from RestApp.models import SearchURL
 from RestApp.serializers import SearchURLSerializer
 
 from RestApp.logic import searchLogic
+from RestApp.linkparser import linkparser
 
 # Create your views here.
 # It is used to write the api methods
@@ -19,6 +20,7 @@ def restApi(request, query, case, anda, ora, nota, id=0):
         results = SearchURL.objects.all()# To retrieve all the data
         results_serializer = SearchURLSerializer(results, many=True) # To convert data to JSON format
         returnme = searchLogic(results_serializer, query, case, anda, ora, nota)
+        #temp = linkparser(returnme)
         return JsonResponse(returnme.matches, safe=False) #safe = False is to say that JSON response conversion is valid
 
     elif request.method == 'POST':

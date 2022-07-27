@@ -77,7 +77,9 @@ class searchLogic:
                 if query in desc:
                     matches.append(i)
                 
-        return matches
+        return sorted(matches,key=lambda k: k['Rank'],reverse=True)
+
+
     
     def caseSensitiveTrue(self, query, desc):
         if query in desc:
